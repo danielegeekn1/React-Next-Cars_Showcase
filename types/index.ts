@@ -1,5 +1,7 @@
 import { MouseEventHandler } from "react";
-
+export interface HomeProps {
+	searchParams: FilterProps;
+}
 export interface CustomBtnProps {
 	title: string;
 	btnStyles?: string;

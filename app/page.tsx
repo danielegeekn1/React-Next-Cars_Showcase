@@ -6,9 +6,10 @@ import {
 	ShowMoreCars,
 } from "@/components";
 import { yearsOfProduction, fuels } from "@/constants";
+import { HomeProps } from "@/types";
 import { fetchCars } from "@/utils";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: HomeProps) {
 	const allCars = await fetchCars({
 		manufacturer: searchParams.manufacturer || "",
 		year: searchParams.year || 2022,
@@ -40,7 +41,7 @@ export default async function Home({ searchParams }) {
 							))}
 						</div>
 						<ShowMoreCars
-							pageNumber={(searchParams.pageNumber || 10) / 10}
+							pageNumber={(searchParams.limit || 10) / 10}
 							isNext={(searchParams.limit || 10) > allCars.length}
 						/>
 					</section>
